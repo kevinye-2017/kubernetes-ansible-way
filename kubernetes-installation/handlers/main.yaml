@@ -1,0 +1,31 @@
+---
+- name: Start kubelet
+  systemd:
+    name: kubelet
+    enabled: yes
+    state: started
+
+- name: Start docker
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Restart docker
+  systemd:
+    name: docker
+    state: restarted
+    daemon_reload: yes
+
+- name: Start haproxy
+  systemd:
+    name: haproxy
+    enabled: yes
+    state: started
+
+- name: Start keepalived
+  systemd:
+    name: keepalived
+    enabled: yes
+    state: started
+
