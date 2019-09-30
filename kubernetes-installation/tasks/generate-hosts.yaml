@@ -1,0 +1,9 @@
+---
+- hosts: k8s
+  remote_user: root
+
+  tasks:
+  - name: Generate /etc/hosts
+    template:
+      src: /root/k8s-kubeadm/templates/hosts
+      dest: /etc/hosts

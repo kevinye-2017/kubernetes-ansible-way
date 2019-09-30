@@ -1,0 +1,28 @@
+---
+- name: Setup linux parameters
+  block:
+    - name: Modify hard nofile limits
+      pam_limits:
+        domain: '*'
+        limit_type: hard
+        limit_item: nofile
+        value: 1000000
+    - name: Modify soft nofile limits
+      pam_limits:
+        domain: '*'
+        limit_type: soft
+        limit_item: nofile
+        value: 1000000
+    - name: Modify hard nproc limits
+      pam_limits:
+        domain: '*'
+        limit_type: hard
+        limit_item: nproc
+        value: 100000
+    - name: Modify soft nproc limits
+      pam_limits:
+        domain: '*'
+        limit_type: soft
+        limit_item: nproc
+        value: 100000
+      

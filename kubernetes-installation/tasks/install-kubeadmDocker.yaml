@@ -1,0 +1,20 @@
+---
+- name: Install docker runtime kubeadm
+  block:
+    - yum:
+        name: kubeadm-1.15.4,kubelet-1.15.4,kubectl-1.15.4
+        state: present
+      notify: 
+        - Start kubelet
+    - yum:
+        name: docker-ce-18.06.3.ce
+        state: present
+      notify: 
+        - Start docker
+
+- name: Change cgroupfs driver to systemd
+  copy:
+    src: daemon.json
+    dest: /etc/docker
+  notify:
+    - Restart docker

@@ -1,0 +1,27 @@
+- name: set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Copy repo
+  import_tasks: copy-k8sRepo.yaml
+
+- name: Set open files limits 
+  import_tasks: set-limits.yaml
+  tags:
+    - set-limits
+
+- name: Set kernel parameters
+  import_tasks: set-kernel-parameters.yaml
+  tags:
+    - set-kernel
+
+- name: Install kubeadm and docker runtime
+  import_tasks: install-kubeadmDocker.yaml
+  tags:
+    - install-kubeadm
+
+- name: Install haproxy
+  import_tasks: install-haproxy.yaml
+  when: inventory_hostname in groups['master']
+  tags:
+    - install-haproxy
