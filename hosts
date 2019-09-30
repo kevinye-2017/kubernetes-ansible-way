@@ -1,0 +1,18 @@
+[k8s]
+M1 ansible_host=22.22.22.129 ansible_password=654321
+M2 ansible_host=22.22.22.130 ansible_password=654321
+M3 ansible_host=22.22.22.131 ansible_password=654321
+
+Node1 ansible_host=22.22.22.132 ansible_password=654321
+Node2 ansible_host=22.22.22.133 ansible_password=654321
+Node3 ansible_host=22.22.22.134 ansible_password=654321
+
+[master]
+M1 ansible_host=22.22.22.129 ansible_password=654321
+M2 ansible_host=22.22.22.130 ansible_password=654321
+M3 ansible_host=22.22.22.131 ansible_password=654321
+
+[node]
+Node1 ansible_host=22.22.22.132 ansible_password=654321
+Node2 ansible_host=22.22.22.133 ansible_password=654321
+Node3 ansible_host=22.22.22.134 ansible_password=654321
