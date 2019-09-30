@@ -5,5 +5,5 @@
   tasks:
   - name: Generate /etc/hosts
     template:
-      src: /root/k8s-kubeadm/templates/hosts
+      src: hosts.j2
       dest: /etc/hosts
