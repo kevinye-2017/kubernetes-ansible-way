@@ -7,7 +7,7 @@
       notify: 
         - Start kubelet
     - yum:
-        name: docker-ce-18.06.3.ce
+        name: docker-ce-18.09.9
         state: present
       notify: 
         - Start docker
