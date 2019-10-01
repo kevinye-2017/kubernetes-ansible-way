@@ -1,2 +1,11 @@
 ---
-VIP: 22.22.22.253
+# haproxy virtual ip
+LoadBlanceIP: 22.22.22.253
+LoadBlancePort: 8443
+
+# pod CIDR
+PodSubnet: 10.244.0.0/16
+ServiceSubnet: 10.20.0.0/16
+
+
+
