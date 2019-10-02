@@ -4,7 +4,7 @@
     source: pull
     force_tag: yes
     repository: "{{ item | regex_replace('^f.*w(.*)$','k8s.gcr.io\\1') }}"
-  loop: "{{ ImagesIlist }}"
+  loop: "{{ ImagesList }}"
 
 - name: Create tmp directory
   file:
@@ -16,4 +16,4 @@
     name: "{{ item | regex_replace('^f.*w(.*)$','k8s.gcr.io\\1') }}"
     archive_path: "/tmp/kubernetes-images/{{ item | regex_replace('^f.*w(.*)$','\\1') }}.tar"
     source: local
-  loop: "{{ ImagesIlist }}"
+  loop: "{{ ImagesList }}"
