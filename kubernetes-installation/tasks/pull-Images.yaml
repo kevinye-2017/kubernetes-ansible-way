@@ -1,0 +1,19 @@
+- name: Tag and push to local registry
+  docker_image:
+    name: "{{ item }}"
+    source: pull
+    force_tag: yes
+    repository: "{{ item | regex_replace('^f.*w(.*)$','k8s.gcr.io\\1') }}"
+  loop: "{{ ImagesIlist }}"
+
+- name: Create tmp directory
+  file:
+    path: /tmp/kubernetes-images
+    state: directory
+
+- name: Archive images
+  docker_image:
+    name: "{{ item | regex_replace('^f.*w(.*)$','k8s.gcr.io\\1') }}"
+    archive_path: "/tmp/kubernetes-images/{{ item | regex_replace('^f.*w(.*)$','\\1') }}.tar"
+    source: local
+  loop: "{{ ImagesIlist }}"

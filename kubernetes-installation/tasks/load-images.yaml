@@ -1,0 +1,19 @@
+---
+- name: Copy images tar to remote host
+  copy: 
+    src: /tmp/kubernetes-images
+    dest: /tmp/
+  
+- name: Get remote hosts file list
+  shell: ls -v *.tar
+  register: releases
+  args:
+    chdir: /tmp/kubernetes-images
+- name: Load images
+  shell: "docker load --input {{ item }}"
+  args:
+    chdir: /tmp/kubernetes-images
+  loop: "{{ releases.stdout_lines }}"
+
+
+#- debug: msg={{ releases.stdout_lines }}
