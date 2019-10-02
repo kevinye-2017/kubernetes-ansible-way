@@ -15,6 +15,18 @@
   tags:
     - set-kernel
 
+- name: Pull images
+  import_tasks: pull-Images.yaml
+  delegate_to: 127.0.0.1
+  run_once: True
+  tags:
+    - pull-images
+
+- name: Load images
+  import_tasks: load-images.yaml
+  tags:
+    - pull-images
+
 - name: Install kubeadm and docker runtime
   import_tasks: install-kubeadmDocker.yaml
   tags:
