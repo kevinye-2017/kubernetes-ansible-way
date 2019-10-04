@@ -5,12 +5,16 @@
         name: kubeadm-1.15.4,kubelet-1.15.4,kubectl-1.15.4
         state: present
       notify: 
-        - Start kubelet
+        - Enable kubelet
     - yum:
         name: docker-ce-18.09.9
         state: present
       notify: 
         - Start docker
+
+#- name: Add node ip to kubelet
+#  shell: |
+#    echo "KUBELET_EXTRA_ARGS=--node-ip={{ hostvars[host]['ansible_host'] }}" > /etc/default/kubelet
 
 - name: Change cgroupfs driver to systemd
   copy:
