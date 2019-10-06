@@ -1,0 +1,8 @@
+---
+- name: Install flannel cni
+  copy:
+    src: kube-flannel.yml
+    dest: /tmp
+- shell: kubectl apply -f kube-flannel.yml
+  args:
+    chdir: /tmp
