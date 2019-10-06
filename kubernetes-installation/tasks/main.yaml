@@ -37,3 +37,31 @@
   when: inventory_hostname in groups['master']
   tags:
     - install-haproxy
+
+- name: Init cluster
+  import_tasks: init-master.yaml
+  run_once: True
+  delegate_to: "{{ groups['master'][0] }}"
+  tags:
+    - init-master
+
+- name: Join cluster
+  import_tasks: join-cluster.yaml
+  run_once: True
+  delegate_to: "{{ groups['master'][1] }}"
+  tags:
+    - join-cluster
+
+- name: Join cluster
+  import_tasks: join-cluster.yaml
+  run_once: True
+  delegate_to: "{{ groups['master'][2] }}"
+  tags:
+    - join-cluster
+
+- name: Install flannel cni
+  import_tasks: install-flannel.yaml
+  delegate_to: "{{ groups['master'][0] }}"
+  run_once: True
+  tags:
+    - install-flannel
