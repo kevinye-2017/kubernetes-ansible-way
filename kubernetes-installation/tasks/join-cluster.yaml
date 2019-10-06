@@ -1,0 +1,5 @@
+---
+  #debug:  msg={{ output.stdout | regex_search('(?<=token )\w+.*') }}
+  
+- name: Run kubeadm join in master
+  shell: "/usr/bin/kubeadm join {{ LoadBlanceIP }}:{{ LoadBlancePort }} --token {{ K8STOKEN }} --discovery-token-ca-cert-hash sha256:{{ DISCOVERY_TOKEN_HASH }} --control-plane --certificate-key {{ CERTIFICATE_KEY }}"
