@@ -1,4 +1,10 @@
 ---
+- name: Setup kubectl
+  shell: |
+    mkdir -p $HOME/.kube
+    cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    chown $(id -u):$(id -g) $HOME/.kube/config
+
 - name: Install flannel cni
   copy:
     src: kube-flannel.yml
