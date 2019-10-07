@@ -57,7 +57,7 @@ cd kubernetes-ansible-way
 ansible-playbook -i hosts kubernetes-installation.yaml
 ```
 
-![cluster-info](C:\Users\29758\Pictures\cluster-info.PNG)
+![cluster-info](https://github.com/kevinye-2017/Images-use-for-readme/blob/master/k8s/cluster-info.PNG)
 
 4.后续添加ndoe节点
 
