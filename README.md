@@ -51,7 +51,7 @@ cd kubernetes-ansible-way
 - roles里的变量全部定义在kubernetes-installation/defaults/main.yaml，还有一些变量会在运行时进行动态register，这部分在kubernetes-installation/tasks/init-master.yaml
 
 3.运行ansible roles，master集群
-这一部分会先设定好HA高可用、3台master自动创建兵加入集群
+这一部分会先设定好HA高可用、3台master自动创建并加入集群
 
 ```
 ansible-playbook -i hosts kubernetes-installation.yaml
