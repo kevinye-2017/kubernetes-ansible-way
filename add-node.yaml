@@ -1,0 +1,18 @@
+---
+
+# Get token for node 
+- hosts: k8s
+  gather_facts: False
+
+  tasks:
+    - name: Get master join command
+      shell: |
+        /usr/bin/kubeadm token create --print-join-command
+      register: joinCommand
+      delegate_to: "{{ groups['master'][0] }}"
+      run_once: True
+
+    # Join in cluster
+    - name: join
+      shell:  "{{ joinCommand.stdout }}"
+      when: inventory_hostname in groups['node']
