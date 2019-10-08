@@ -65,3 +65,6 @@ ansible-playbook -i hosts kubernetes-installation.yaml
 ansible-playbook -i hosts add-node.yaml
 ```
 
+
+### 一些errors/issue 
+https://github.com/kontena/pharos-cluster/issues/440
