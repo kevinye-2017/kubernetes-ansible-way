@@ -16,3 +16,8 @@ M3 ansible_host=22.22.22.131 ansible_password=654321
 Node1 ansible_host=22.22.22.132 ansible_password=654321
 Node2 ansible_host=22.22.22.133 ansible_password=654321
 Node3 ansible_host=22.22.22.134 ansible_password=654321
+
+# all node children
+[all-node]
+master
+node
