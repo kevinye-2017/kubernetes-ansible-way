@@ -64,6 +64,12 @@ ansible-playbook -i hosts kubernetes-installation.yaml
 ```
 ansible-playbook -i hosts add-node.yaml
 ```
+5.添加lables
+
+```
+kubectl label node node1 node2 node3 node-role.kubernetes.io/worker=
+```
+
 
 
 ### 一些errors/issue 
