@@ -66,5 +66,5 @@ ansible-playbook -i hosts add-node.yaml
 ```
 
 
-### 一些issue
+### 错误/issue
 https://github.com/kontena/pharos-cluster/issues/440
