@@ -1,5 +1,5 @@
 # kubernetes-ansible-way
-本文以ansible来完高可用k8s集群,以kubeadm方式来完成集群的初始化。
+本文以ansible来完高可用k8s集群,以kubeadm方式来完成集群的初始化。kubeadm对多网卡支持不好，etcd、k8s相关组件会使用默认出口网关ip网段作为集群ip。所以正式环境还是建议使用二进制部署，或者对kubeadm部署扣成二进制!
 
 ### 环境准备
 
