@@ -44,7 +44,7 @@ cd kubernetes-ansible-way
 ```
 
 2.配置ansible
-这里使用的虚拟ip会在一些云环境没法达到自动漂移，如阿里云SLB。
+这里使用的虚拟ip会在一些云环境没法达到自动漂移，可以将LoadBlanceIP 换成SLB。
 
 - 这里的ssh默认端口均为22，如果为其它端口需修改ansible inventory (hosts) ansible_ssh_port=port
 - 主机名会设定hosts里的名称
